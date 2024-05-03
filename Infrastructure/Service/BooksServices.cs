@@ -1,19 +1,16 @@
-using Microsoft.AspNetCore.Mvc;
-using sultan;
-namespace sultan.Db;
+namespace sultan.Service;
 
-public class BooksDb : Context
+public class BooksServices : Context
 {
-    private static Context _db;
+    private static Context _db = new Context();
 
-    public static List<Books> GetBook()
+    public async static Task<List<Books>> GetBook()
     {
-        List<Books> books = _db.Books.ToList();
+        var books = _db.Books.ToList();
         return books;
     }
-
     
-    public static List<Books>? FillLibrary()
+    public async Task<List<Books>> FillLibrary()
     {
         List<Books> books = new List<Books>
         {
@@ -31,9 +28,7 @@ public class BooksDb : Context
             new Books {Name = "Тысяча сияющих солнц", Author = "Халед Хоссейни" }
         };
         _db.Books.AddRange(books);
-        _db.SaveChanges();
-        return GetBook();
+        await _db.SaveChangesAsync();
+        return await GetBook();
     }
-    
-    
 }

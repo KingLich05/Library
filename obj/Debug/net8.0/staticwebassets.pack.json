@@ -1,27 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\wwwroot\\style\\auth.css",
+      "Id": "C:\\sultan\\wwwroot\\style\\auth.css",
       "PackagePath": "staticwebassets\\style\\auth.css"
     },
     {
-      "Id": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\wwwroot\\style\\form.css",
+      "Id": "C:\\sultan\\wwwroot\\style\\form.css",
       "PackagePath": "staticwebassets\\style\\form.css"
     },
     {
-      "Id": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\wwwroot\\style\\index.css",
+      "Id": "C:\\sultan\\wwwroot\\style\\index.css",
       "PackagePath": "staticwebassets\\style\\index.css"
     },
     {
-      "Id": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\wwwroot\\style\\menu.css",
+      "Id": "C:\\sultan\\wwwroot\\style\\menu.css",
       "PackagePath": "staticwebassets\\style\\menu.css"
     },
     {
-      "Id": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\wwwroot\\style\\profile.css",
+      "Id": "C:\\sultan\\wwwroot\\style\\profile.css",
       "PackagePath": "staticwebassets\\style\\profile.css"
     },
     {
-      "Id": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\wwwroot\\style\\table.css",
+      "Id": "C:\\sultan\\wwwroot\\style\\table.css",
       "PackagePath": "staticwebassets\\style\\table.css"
     },
     {

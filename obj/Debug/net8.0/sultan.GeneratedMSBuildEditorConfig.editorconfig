@@ -17,23 +17,23 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = sultan
 build_property.RootNamespace = sultan
-build_property.ProjectDir = C:\Users\skurm\OneDrive\Рабочий стол\sultan\
+build_property.ProjectDir = C:\sultan\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\skurm\OneDrive\Рабочий стол\sultan
+build_property.MSBuildProjectDirectory = C:\sultan
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/skurm/OneDrive/Рабочий стол/sultan/Views/Home/Index.cshtml]
+[C:/sultan/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skurm/OneDrive/Рабочий стол/sultan/Views/Users/auth.cshtml]
+[C:/sultan/Views/Users/auth.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcYXV0aC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/skurm/OneDrive/Рабочий стол/sultan/Views/Users/Registration.cshtml]
+[C:/sultan/Views/Users/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0cmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

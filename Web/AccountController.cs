@@ -4,9 +4,8 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using sultan.Db;
-using sultan.Web.ViewModels;
+using sultan.Service;
+
 
 namespace sultan.Web;
 
@@ -24,7 +23,7 @@ public class AccountController : Controller
     [Route("/token")]
     public IActionResult Login(Person model)
     {
-        var person = UsersDb.IsValidUser(model.Email, model.Password);
+        var person = UsersServices.IsValidUser(model.Email, model.Password);
         if (person != null)
         {
             var claims = new List<Claim>

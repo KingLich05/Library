@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
-using sultan.Db;
+using sultan.Service;
 using sultan.Web.ViewModels;
 namespace sultan.Web;
 
@@ -9,12 +8,12 @@ public class HomeController : Controller
 {
     
     [HttpGet]
-    public IActionResult Index(int id) 
-    {       
+    public async Task<IActionResult> Index(int id)
+    {
         var viewModel = new BooksBAUViewModel()
         {
-            Books = BooksDb.GetBook(),
-            BookAndUser = BookAndUserDb.GetBau(),
+            Books = await BooksServices.GetBook(),
+            BookAndUser = await BookAndUsersServices.GetBau(),
             idUser = id
         };
         return View(viewModel); 
@@ -23,14 +22,14 @@ public class HomeController : Controller
     [HttpPost] 
     public IActionResult ReturnBook(int bookId, int userId)
     { 
-        
+        BookAndUsersServices.ReturnBook(bookId, userId);
         return RedirectToAction("Index", "Home", new {id = userId});    
     }
     
     [HttpPost] 
     public IActionResult AddBook(int bookId, int userId)
     {
-        BookAndUserDb.AddBook(bookId, userId);
+        BookAndUsersServices.AddBook(bookId, userId);
         return RedirectToAction("Index", "Home", new {id = userId});    
     }
 }

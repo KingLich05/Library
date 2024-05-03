@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\sultan.csproj": {}
+    "C:\\sultan\\sultan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\sultan.csproj": {
+    "C:\\sultan\\sultan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\sultan.csproj",
+        "projectUniqueName": "C:\\sultan\\sultan.csproj",
         "projectName": "sultan",
-        "projectPath": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\sultan.csproj",
+        "projectPath": "C:\\sultan\\sultan.csproj",
         "packagesPath": "C:\\Users\\skurm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\skurm\\OneDrive\\Рабочий стол\\sultan\\obj\\",
+        "outputPath": "C:\\sultan\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,6 +67,10 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

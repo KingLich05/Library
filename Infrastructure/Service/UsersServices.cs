@@ -1,8 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using sultan;
-namespace sultan.Db;
+namespace sultan.Service;
 
-public class UsersDb
+public class UsersServices
 {
     private static Context _db = new Context();
     
