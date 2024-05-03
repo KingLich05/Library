@@ -6,12 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using sultan.Service;
 
-
-namespace sultan.Web;
+namespace sultan.Web.Controllers;
 
 public class AccountController : Controller
 {
-    
     private readonly IConfiguration _configuration;
 
     public AccountController(IConfiguration configuration)
@@ -62,8 +60,4 @@ public class AccountController : Controller
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
     }
-    
 }
-
-
-

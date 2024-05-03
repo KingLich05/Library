@@ -46,8 +46,4 @@
     <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\Db\" />
-  </ItemGroup>
-
 </Project>

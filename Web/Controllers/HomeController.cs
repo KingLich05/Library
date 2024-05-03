@@ -1,12 +1,12 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using sultan.Service;
 using sultan.Web.ViewModels;
-namespace sultan.Web;
+
+
+namespace sultan.Web.Controllers;
 
 public class HomeController : Controller
 {
-    
     [HttpGet]
     public async Task<IActionResult> Index(int id)
     {
@@ -20,16 +20,17 @@ public class HomeController : Controller
     }
     
     [HttpPost] 
-    public IActionResult ReturnBook(int bookId, int userId)
+    public async Task<IActionResult> ReturnBook(int bookId, int userId)
     { 
-        BookAndUsersServices.ReturnBook(bookId, userId);
+        await BookAndUsersServices.ReturnBook(bookId, userId);
         return RedirectToAction("Index", "Home", new {id = userId});    
     }
     
     [HttpPost] 
-    public IActionResult AddBook(int bookId, int userId)
+    public async Task<IActionResult> AddBook(int bookId, int userId)
     {
-        BookAndUsersServices.AddBook(bookId, userId);
+        await BookAndUsersServices.AddBook(bookId, userId);
+        
         return RedirectToAction("Index", "Home", new {id = userId});    
     }
 }

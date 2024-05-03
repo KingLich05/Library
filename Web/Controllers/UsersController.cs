@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using sultan.Service;
 
-namespace sultan.Web;
+namespace sultan.Web.Controllers;
 
-public class Users : Controller
+public class UsersController : Controller
 {
     [HttpGet]
     public IActionResult Auth()
