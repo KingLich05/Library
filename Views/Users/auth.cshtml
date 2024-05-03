@@ -1,0 +1,28 @@
+@using IdentityServer3.Core.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>auth</title>
+    <link rel="stylesheet" href="/style/auth.css">
+</head>
+<body>
+<div class="testbox" id="loginForm">
+    <h1>Авторизация</h1>
+    <form method="post" action="/token">
+        <hr>
+        <input type="email" name="email" class="name" placeholder="Email" required/>
+        <input type="password" name="password" class="name" placeholder="Password" required/>
+        <input type="submit" value="Send" class="button"/>
+    </form>
+    <center>
+    <form method="get" action="~/Users/Registration">
+        <input type="submit" value="Регистрация"/>
+    </form>
+    </center>
+</div>         
+</body>
+</html>
+

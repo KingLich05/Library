@@ -1,0 +1,62 @@
+@using sultan.Db
+@using Microsoft.AspNetCore.Authorization
+
+@inject IAuthorizationService AuthorizationService
+@model sultan.Web.ViewModels.BooksBAUViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="">
+<head>
+    <title>title</title>
+    <link rel="stylesheet" href="/style/table.css">
+    <link rel="stylesheet" href="/style/index.css">
+</head>
+<body>
+
+<center>
+    <p>количество книг у пользователя: @Model.BookAndUser.Count</p>
+    <p>@Model.idUser</p>
+</center>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model.Books)
+    {
+        <tr>
+            <td>@book.Name</td>
+            <td>@book.Author</td>
+            <td>
+                @if (Model.BookAndUser.Any(b => b.idBook == book.Id))
+                {
+                    <form method="post" action="~/Home/ReturnBook">
+                        <input type="hidden" name="bookId" value="@book.Id"/>
+                        <input type="hidden" name="userId" value="@Model.idUser"/>
+                        <button type="submit">Вернуть</button>
+                    </form>
+                }
+                else
+                {
+                    <form method="post" action="~/Home/AddBook">
+                        <input type="hidden" name="bookId" value="@book.Id"/>
+                        <input type="hidden" name="userId" value="@Model.idUser"/>
+                        <button type="submit">Добавить</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+</body>
+</html>

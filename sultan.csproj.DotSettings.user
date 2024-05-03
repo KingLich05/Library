@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=WWWROOT_005CACCOUNT/@EntryIndexedValue">wwwroot\Account</s:String>
+	
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=WWWROOT_005CHOME_005CRETURNBOOK/@EntryIndexedValue">wwwroot\Home\ReturnBook</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=WWWROOT_005CUSERS_005CREGPERSON/@EntryIndexedValue">wwwroot\Users\RegPerson</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=WWWROOT_005CHOME_005CADDBOOK/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=WWWROOT_005CUSERS_005CAUTHORIZATION/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CACCOUNT/@EntryIndexedValue">wwwroot\Account</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CHOME_005CADDBOOK/@EntryIndexedValue">wwwroot\Home\AddBook</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CHOME_005CRETURNBOOK/@EntryIndexedValue">wwwroot\Home\ReturnBook</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CUSERS_005CAUTHORIZATION/@EntryIndexedValue">wwwroot\Users\Authorization</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=WWWROOT_005CUSERS_005CREGPERSON/@EntryIndexedValue">wwwroot\Users\RegPerson</s:String></wpf:ResourceDictionary>

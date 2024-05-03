@@ -1,0 +1,26 @@
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+    <link rel="stylesheet" href="/style/form.css">
+</head>
+<body>
+<div class="testbox" id="loginForm">
+    <h1>Registration</h1>
+
+    <form method="post" action="~/Users/RegPerson">
+        <hr>
+        <input type="text" name="Name" class="name" placeholder="Name" required/>
+        <input type="email" name="Email" class="name" placeholder="Email" required/>
+        <input type="password" name="Password" class="name" placeholder="Password" required/>
+        <input type="submit" value="Send" class="button"/>
+    </form>
+</div></body>
+</html>

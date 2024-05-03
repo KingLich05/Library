@@ -1,0 +1,32 @@
+.button-logout{
+    background:#30A8E6;
+    color:#fff;
+    border-color: #30A8E6;
+    box-shadow: none;
+}
+
+ul {
+    justify-content: center;
+    list-style: none;
+    margin: 15px 0 0 0 ;
+    padding-left: 0;
+    display: flex;
+}
+a {
+    text-decoration: none;
+    background:#30A8E6;
+    color:#fff;
+    padding:10px;
+    font-family: arial;
+    border-radius:4px;
+    -moz-transition: all 0.3s 0.01s ease;
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+}
+a:hover {
+    background:#1C85BB;
+    margin: 15px;
+}
+li {
+    margin: 5px;
+}

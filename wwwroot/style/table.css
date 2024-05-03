@@ -1,0 +1,16 @@
+thead{
+    font-weight: bold;
+}
+table {
+    border: 1px solid;
+    margin: auto;
+    background-color: slategray;
+}
+th {
+    border: 1px solid grey;
+}
+td {
+    padding:5px;
+    border: 1px solid black;
+    text-align: center;
+}
