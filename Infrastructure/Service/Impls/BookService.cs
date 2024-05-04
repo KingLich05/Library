@@ -1,15 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace sultan.Service;
+namespace sultan.Service.Impls;
 
-public class BooksServices : Context
+public class BookService : IBookService
 {
-    private static Context _db = new Context();
+    private static readonly Context Db = new Context();
 
-    public static async Task<List<Books>> GetBook()
-    {
-        var books = _db.Books.ToListAsync();
-        return await books;
+    public async Task<List<Books>> GetBook()
+    {   
+        return await Db.Books.ToListAsync();
     }
     
     public async Task<List<Books>> FillLibrary()
@@ -29,8 +28,8 @@ public class BooksServices : Context
             new Books {Name = "7 навыков высокоэффективных людей",  Author = "Стивен Кови" },
             new Books {Name = "Тысяча сияющих солнц", Author = "Халед Хоссейни" }
         };
-        _db.Books.AddRange(books);
-        await _db.SaveChangesAsync();
+        Db.Books.AddRange(books);
+        await Db.SaveChangesAsync();
         return await GetBook();
     }
 }

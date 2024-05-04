@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Jwt.jwt);
 builder.Services.AddScoped<IUsersService, UserService>();
+builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();
 

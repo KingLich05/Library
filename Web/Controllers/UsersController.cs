@@ -18,7 +18,7 @@ public class UsersController(IUsersService usersService) : Controller
     }
 
     [HttpPost]
-    public IActionResult RegPerson(sultan.Users user)
+    public IActionResult RegPerson(Users user)
     {
         usersService.SavePersonDbAsync(user);
         return RedirectToAction("Auth", "Users");
