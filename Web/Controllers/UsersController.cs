@@ -3,12 +3,12 @@ using sultan.Service;
 
 namespace sultan.Web.Controllers;
 
-public class UsersController : Controller
+public class UsersController(IUsersService usersService) : Controller
 {
     [HttpGet]
     public IActionResult Auth()
     {
-        return View(UsersServices.GetUsersList());
+        return View(usersService.GetUsersListAsync());
     }
 
     [HttpGet]
@@ -20,7 +20,7 @@ public class UsersController : Controller
     [HttpPost]
     public IActionResult RegPerson(sultan.Users user)
     {
-        UsersServices.SavePersonDB(user);
+        usersService.SavePersonDbAsync(user);
         return RedirectToAction("Auth", "Users");
     }
 }

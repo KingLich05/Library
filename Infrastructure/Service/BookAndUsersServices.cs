@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using sultan.Web;
 
 namespace sultan.Service;
 
@@ -25,4 +26,10 @@ public class BookAndUsersServices
         _db.BookAndUsers.Remove(deleteBook);
         await _db.SaveChangesAsync();
     }
+
+    public static async Task MailService()
+    {
+        await Mail.SendMail();
+    }
+    
 }

@@ -30,7 +30,7 @@ public class HomeController : Controller
     public async Task<IActionResult> AddBook(int bookId, int userId)
     {
         await BookAndUsersServices.AddBook(bookId, userId);
-        
+        // await BookAndUsersServices.MailService();
         return RedirectToAction("Index", "Home", new {id = userId});    
     }
 }

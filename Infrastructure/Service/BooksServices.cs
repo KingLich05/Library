@@ -1,13 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace sultan.Service;
 
 public class BooksServices : Context
 {
     private static Context _db = new Context();
 
-    public async static Task<List<Books>> GetBook()
+    public static async Task<List<Books>> GetBook()
     {
-        var books = _db.Books.ToList();
-        return books;
+        var books = _db.Books.ToListAsync();
+        return await books;
     }
     
     public async Task<List<Books>> FillLibrary()

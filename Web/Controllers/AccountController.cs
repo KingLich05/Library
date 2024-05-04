@@ -8,36 +8,23 @@ using sultan.Service;
 
 namespace sultan.Web.Controllers;
 
-public class AccountController : Controller
+public class AccountController(IConfiguration configuration, IUsersService usersService) : Controller
 {
-    private readonly IConfiguration _configuration;
-
-    public AccountController(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
-
     [HttpPost]
     [Route("/token")]
     public IActionResult Login(Person model)
     {
-        var person = UsersServices.IsValidUser(model.Email, model.Password);
-        if (person != null)
+        var person = usersService.IsValidUserAsync(model.Email, model.Password);
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, person.Email)
+                new Claim(ClaimTypes.Name, model.Email)
             };
             var identity = new ClaimsIdentity(claims, "login");
             var principal = new ClaimsPrincipal(identity);
             HttpContext.SignInAsync(principal);
-            var token = GenerateToken(person.Email);
+            var token = GenerateToken(model.Email);
             return RedirectToAction("Index", "Home",new { id = person.Id }); 
-        }
-        else
-        {
-            Console.WriteLine("не авторизован");
-            return Unauthorized();
         }
     }
 
@@ -45,7 +32,7 @@ public class AccountController : Controller
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         
-        var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Secret"]);
+        var key = Encoding.ASCII.GetBytes(configuration["Jwt:Secret"]);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {

@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using sultan.Application;
+using sultan.Service;
+using sultan.Service.Impls;
 
 var builder = WebApplication.CreateBuilder();
 
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Jwt.jwt);
+builder.Services.AddScoped<IUsersService, UserService>();
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
@@ -19,6 +23,7 @@ app.UseAuthorization();
 app.UseSession(); 
 app.UseHttpsRedirection();
 app.UseRouting();
+
 
 app.MapControllerRoute(
     name: "default",
