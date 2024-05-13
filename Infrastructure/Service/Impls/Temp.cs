@@ -10,7 +10,7 @@ public class Temp : ITemp
         IBookAndUserService bauser = new BookAndUserService();
         IBookService bookser = new BookService();
         var bau = await bauser.GetBau();
-        var books = await bookser.GetBook();
+        var books = await bookser.GetBookAsync();
         
         var temporary = from b in bau 
             join i in books on b.idBook equals i.Id

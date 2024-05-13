@@ -15,7 +15,7 @@ public class AccountController(
 {
     [HttpPost]
     [Route("/token")]
-    public async Task<IActionResult> Login(Person model) //<>
+    public async Task<IActionResult> Login(Person model)
     {
         Person person = await usersService.IsValidUserAsync(model.Email, model.Password);
         var claims = new List<Claim>
@@ -45,7 +45,6 @@ public class AccountController(
             SigningCredentials =
                 new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
-
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return Task.FromResult(tokenHandler.WriteToken(token));
     }

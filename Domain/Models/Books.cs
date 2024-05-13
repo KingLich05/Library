@@ -7,4 +7,5 @@ public class Books : Entity
 {
     public string Name { get; set; } = null!;
     public string Author { get; set; } = null!;
+    public int Presence { get; set; }
 }
