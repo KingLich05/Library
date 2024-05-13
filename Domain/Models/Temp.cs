@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using sultan.Domain.Models;
 
 namespace sultan;
-public class Temp
+public class Temp : Entity
 {
     [Key]
     public string Name { get; set; }

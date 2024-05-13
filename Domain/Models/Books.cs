@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using sultan.Domain.Models;
+
 namespace sultan;
 
-public class Books
+public class Books : Entity
 {
-    public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string Author { get; set; } = null!;
 }

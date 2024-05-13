@@ -19,10 +19,23 @@ public class UserService : IUsersService
         return await GetUsersListAsync();
     }
 
-    public async Task<Users> IsValidUserAsync(string username, string password)
+    public async Task<Person> IsValidUserAsync(string username, string password)
     {
         var people = await GetUsersListAsync();
         var person = people.FirstOrDefault(p => p.Email == username && BCrypt.Net.BCrypt.Verify(password, p.Password));
+        var newPerson = ConvertToPerson(person);
+        return newPerson;
+    }
+    
+    static Person ConvertToPerson(Users user)
+    {
+        Person person = new Person
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+            Password = user.Password
+        };
         return person;
     }
 }

@@ -17,7 +17,7 @@
 <body>
 @* добавить выход из аккаунта *@
 <center>
-    <p>количество книг у пользователя: @Model.BookAndUser.Count</p>
+    <p>количество книг у пользователя: @Model.Temps.Count</p>
     <p>@Model.idUser</p>
 </center>
 <table>
@@ -35,7 +35,7 @@
             <td>@book.Name</td>
             <td>@book.Author</td>
             <td>
-                @if (Model.BookAndUser.Any(b => b.idBook == book.Id))
+                @if (Model.Temps.Any(b => b.idB == book.Id))
                 {
                     <form method="post" action="~/Home/ReturnBook">
                         <input type="hidden" name="bookId" value="@book.Id"/>

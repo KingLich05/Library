@@ -1,7 +1,7 @@
 namespace sultan.Service;
 
-public interface IBookService
+public abstract class IBookService
 {
-    Task<List<Books>> GetBook();
-    Task<List<Books>> FillLibrary();
+    public abstract Task<List<Books>> GetBook();
+    public abstract Task<List<Books>> FillLibrary();
 }

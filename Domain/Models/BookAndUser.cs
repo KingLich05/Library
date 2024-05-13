@@ -1,8 +1,9 @@
+using sultan.Domain.Models;
+
 namespace sultan;
 
-public class BookAndUser
+public class BookAndUser : Entity
 {
-    public int Id { get; set; }
     public int idBook { get; set; }
     public int idUser { get; set; }
     public DateTime Term { get; set; }
