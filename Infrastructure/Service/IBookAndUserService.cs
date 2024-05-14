@@ -1,3 +1,5 @@
+using sultan.Domain.Models;
+
 namespace sultan.Service;
 
 public interface IBookAndUserService

@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using sultan.Domain.Models;
 using sultan.Service;
 
 namespace sultan.Web.Controllers;
@@ -13,6 +14,11 @@ public class AccountController(
     IUsersService usersService,
     IHttpClientFactory httpClientFactory) : Controller
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
     [HttpPost]
     [Route("/token")]
     public async Task<IActionResult> Login(Person model)
@@ -24,14 +30,11 @@ public class AccountController(
             {
                 new Claim(ClaimTypes.Name, model.Email)
             };
-            var identity = new ClaimsIdentity(claims, "login");
-            var principal = new ClaimsPrincipal(identity);
-            var token = GenerateTokenAsync(model.Email);
+            var token = await GenerateTokenAsync(model.Email);
             var httpClient = httpClientFactory.CreateClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await token);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             return RedirectToAction("Index", "Home", new { id = person.Id});
         }
-
         return Unauthorized();
     }
 

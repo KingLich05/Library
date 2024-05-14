@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using sultan.Domain.Models;
 using sultan.Service;
 
 namespace sultan.Web.Controllers;

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using sultan.Domain.Models;
 using sultan.Web;
 
 namespace sultan.Service.Impls;
@@ -71,7 +72,7 @@ public class BookAndUserService : IBookAndUserService
         await Db.SaveChangesAsync();
     }
 
-    public async Task<List<sultan.Temp>> GetBauOnlyPerson(int userId)
+    public async Task<List<Domain.Models.Temp>> GetBauOnlyPerson(int userId)
     {
         Db.Temps.RemoveRange(Db.Temps);
         await Db.SaveChangesAsync();
@@ -90,7 +91,7 @@ public class BookAndUserService : IBookAndUserService
         {    foreach (var emp in selectedPerson)
             {   
                 DateTime time = emp.Time;
-                var t = new sultan.Temp { idB = emp.idB, idP = emp.idP, Author = emp.Author, Name = emp.Name, Time = time };
+                var t = new Domain.Models.Temp { idB = emp.idB, idP = emp.idP, Author = emp.Author, Name = emp.Name, Time = time };
                 Db.Temps.Add(t);
             }
             await Db.SaveChangesAsync();

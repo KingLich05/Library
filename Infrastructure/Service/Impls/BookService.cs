@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using sultan.Domain.Models;
 
 namespace sultan.Service.Impls;
 

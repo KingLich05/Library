@@ -1,3 +1,5 @@
+using sultan.Domain.Models;
+
 namespace sultan.Service.Impls;
 
 public class UserService : IUsersService

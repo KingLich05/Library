@@ -22,7 +22,7 @@ public class Temp : ITemp
         {    foreach (var emp in selectedPerson)
             {   
                 DateTime time = emp.Time;
-                var t = new sultan.Temp { idB = emp.idB, idP = emp.idP, Author = emp.Author, Name = emp.Name, Time = time };
+                var t = new Domain.Models.Temp { idB = emp.idB, idP = emp.idP, Author = emp.Author, Name = emp.Name, Time = time };
                 Db.Temps.Add(t);
             }
             await Db.SaveChangesAsync();
