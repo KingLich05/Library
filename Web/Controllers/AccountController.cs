@@ -18,16 +18,21 @@ public class AccountController(
     public async Task<IActionResult> Login(Person model)
     {
         Person person = await usersService.IsValidUserAsync(model.Email, model.Password);
-        var claims = new List<Claim>
+        if (person != null)
         {
-            new Claim(ClaimTypes.Name, model.Email)
-        };
-        var identity = new ClaimsIdentity(claims, "login");
-        var principal = new ClaimsPrincipal(identity);
-        var token = GenerateTokenAsync(model.Email);
-        var httpClient = httpClientFactory.CreateClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await token);
-        return RedirectToAction("Index", "Home", new { id = person.Id});
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, model.Email)
+            };
+            var identity = new ClaimsIdentity(claims, "login");
+            var principal = new ClaimsPrincipal(identity);
+            var token = GenerateTokenAsync(model.Email);
+            var httpClient = httpClientFactory.CreateClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await token);
+            return RedirectToAction("Index", "Home", new { id = person.Id});
+        }
+
+        return Unauthorized();
     }
 
     private Task<string> GenerateTokenAsync(string username)

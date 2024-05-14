@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="/style/index.css">
 </head>
 <body>
-@* добавить выход из аккаунта *@
 <center>
+<form method="get" action="~/Users/auth">
+        <input type="submit" value="Выход"/>
+    </form>
     <p>количество книг у пользователя: @Model.Temps.Count</p>
     <p>@Model.idUser</p>
 </center>

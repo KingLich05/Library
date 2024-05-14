@@ -23,8 +23,12 @@ public class UserService : IUsersService
     {
         var people = await GetUsersListAsync();
         var person = people.FirstOrDefault(p => p.Email == username && BCrypt.Net.BCrypt.Verify(password, p.Password));
-        var newPerson = ConvertToPerson(person);
-        return newPerson;
+        if (person != null)
+        {
+            var newPerson = ConvertToPerson(person);
+            return newPerson;    
+        }
+        return null;
     }
     
     static Person ConvertToPerson(Users user)
