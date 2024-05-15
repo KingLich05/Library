@@ -36,10 +36,11 @@ public class HomeController(IBookService bookService, IBookAndUserService bookAn
     public async Task<IActionResult> AddBook(int bookId, int userId)
     {
         bool check = await bookAndUserService.AddBook(bookId, userId);
-        //await BookAndUsersServices.MailService();
+        
         if (check)
         {
-            return RedirectToAction("Index", "Home", new {id = userId});    
+            // await bookAndUserService.MailService();
+            return RedirectToAction("Index", "Home", new {id = userId});
         }
         return RedirectToAction("Error", "Home");
     }

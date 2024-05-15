@@ -37,25 +37,32 @@
         <tr>
             <td>@book.Name</td>
             <td>@book.Author</td>
-            <td>@book.Presence</td>
-            <td>
+            
+            
                 @if (Model.Temps.Any(b => b.idB == book.Id))
                 {
-                    <form method="post" action="~/Home/ReturnBook">
-                        <input type="hidden" name="bookId" value="@book.Id"/>
-                        <input type="hidden" name="userId" value="@Model.idUser"/>
-                        <button type="submit">Вернуть</button>
-                    </form>
+                    
+                    <td>
+                        <form method="post" action="~/Home/ReturnBook">
+                            <input type="hidden" name="bookId" value="@book.Id"/>
+                            <input type="hidden" name="userId" value="@Model.idUser"/>
+                            <button type="submit">Вернуть</button>
+                        </form>
+                    </td>
+                    <td>@book.Presence</td>
                 }
                 else
                 {
-                    <form method="post" action="~/Home/AddBook">
-                        <input type="hidden" name="bookId" value="@book.Id"/>
-                        <input type="hidden" name="userId" value="@Model.idUser"/>
-                        <button type="submit">Добавить</button>
-                    </form>
+                    
+                    <td>
+                        <form method="post" action="~/Home/AddBook">
+                            <input type="hidden" name="bookId" value="@book.Id"/>
+                            <input type="hidden" name="userId" value="@Model.idUser"/>
+                            <button type="submit">Добавить</button>
+                        </form>
+                    </td>
+                    <td>@book.Presence</td>
                 }
-            </td>
         </tr>
     }
     </tbody>

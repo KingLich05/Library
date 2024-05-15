@@ -14,11 +14,7 @@ public class AccountController(
     IUsersService usersService,
     IHttpClientFactory httpClientFactory) : Controller
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="model"></param>
-    /// <returns></returns>
+    
     [HttpPost]
     [Route("/token")]
     public async Task<IActionResult> Login(Person model)
@@ -28,9 +24,9 @@ public class AccountController(
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, model.Email)
+                new Claim(ClaimTypes.Name, person.Email)
             };
-            var token = await GenerateTokenAsync(model.Email);
+            var token = await GenerateTokenAsync(person.Email);
             var httpClient = httpClientFactory.CreateClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             return RedirectToAction("Index", "Home", new { id = person.Id});
