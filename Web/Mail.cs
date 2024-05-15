@@ -3,10 +3,19 @@ using System.Net.Mail;
 
 namespace sultan.Web;
 
+/// <summary>
+/// Класс для отправки электронной почты.
+/// </summary>
 public class Mail
 {
-    private const string Body = @"вы взяли книгу";
+    /// <summary>
+    /// Текст сообщения электронной почты.
+    /// </summary>
+    private const string Body = @"Вы взяли книгу";
 
+    /// <summary>
+    /// Отправляет сообщение на электронную почту.
+    /// </summary>
     public static async Task SendMail()
     {
         var client = new SmtpClient("live.smtp.mailtrap.io", 587)

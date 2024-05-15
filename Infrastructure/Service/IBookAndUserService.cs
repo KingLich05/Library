@@ -16,7 +16,7 @@ public interface IBookAndUserService
     /// <param name="userId">Идентификатор пользователя</param>
     /// <returns>Список книг пользователя</returns>
     Task<List<Temp>> GetBauOnlyPerson(int userId);
-    
+
     /// <summary>
     /// Добавление книгу и пользователя к таблице BookAndUser 
     /// </summary>

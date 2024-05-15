@@ -9,12 +9,22 @@ using sultan.Service;
 
 namespace sultan.Web.Controllers;
 
+/// <summary>
+/// Контроллер. Авторизация пользователя
+/// </summary>
+/// <param name="configuration">конфигурация</param>
+/// <param name="usersService">сервис для работы с пользователем</param>
+/// <param name="httpClientFactory">создание http клиента</param>
 public class AccountController(
     IConfiguration configuration,
     IUsersService usersService,
     IHttpClientFactory httpClientFactory) : Controller
 {
-    
+    /// <summary>
+    /// Авторизация пользователя
+    /// </summary>
+    /// <param name="model">это данные которые пришли с представления с формы авторизации</param>
+    /// <returns>Если пользователь найден и авторизация прошла успешно, возвращает на начальную страницу, иначе "Unauthorized"</returns>
     [HttpPost]
     [Route("/token")]
     public async Task<IActionResult> Login(Person model)
@@ -34,7 +44,13 @@ public class AccountController(
         return Unauthorized();
     }
 
-    private Task<string> GenerateTokenAsync(string username)
+    
+    /// <summary>
+    /// Генерирует и настраивает токен
+    /// </summary>
+    /// <param name="username">Электронная почта пользователя</param>
+    /// <returns>Возращает сгенерированный токен</returns>
+    private async Task<string> GenerateTokenAsync(string username)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -50,6 +66,6 @@ public class AccountController(
                 new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
-        return Task.FromResult(tokenHandler.WriteToken(token));
+        return tokenHandler.WriteToken(token);
     }
 }

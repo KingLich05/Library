@@ -4,8 +4,17 @@ using sultan;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 namespace sultan.Application;
 
+
+/// <summary>
+/// Класс для работы с JWT
+/// </summary>
 public abstract class Jwt()
 {
+    
+    /// <summary>
+    /// Настройки JWT
+    /// </summary>
+    /// <param name="options">Настройки аутентификации</param>
     public static void jwt(JwtBearerOptions options)
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -19,6 +28,4 @@ public abstract class Jwt()
             ValidateIssuerSigningKey = true
         };
     }
-    
-   
 }
