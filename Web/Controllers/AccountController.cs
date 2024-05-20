@@ -15,10 +15,12 @@ namespace sultan.Web.Controllers;
 /// <param name="configuration">конфигурация</param>
 /// <param name="usersService">сервис для работы с пользователем</param>
 /// <param name="httpClientFactory">создание http клиента</param>
+/// <param name="jwtTokenGenerator">Cоздание JWT Token</param>
 public class AccountController(
     IConfiguration configuration,
     IUsersService usersService,
-    IHttpClientFactory httpClientFactory) : Controller
+    IHttpClientFactory httpClientFactory,
+    IJwtTokenGenerator jwtTokenGenerator) : Controller
 {
     /// <summary>
     /// Авторизация пользователя
@@ -36,7 +38,8 @@ public class AccountController(
             {
                 new Claim(ClaimTypes.Name, person.Email)
             };
-            var token = await GenerateTokenAsync(person.Email);
+            var token = await jwtTokenGenerator.GenerateTokenAsync(person.Email);
+            // var token = await GenerateTokenAsync(person.Email);
             var httpClient = httpClientFactory.CreateClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             return RedirectToAction("Index", "Home", new { id = person.Id});
@@ -45,27 +48,23 @@ public class AccountController(
     }
 
     
-    /// <summary>
-    /// Генерирует и настраивает токен
-    /// </summary>
-    /// <param name="username">Электронная почта пользователя</param>
-    /// <returns>Возращает сгенерированный токен</returns>
-    private async Task<string> GenerateTokenAsync(string username)
-    {
-        var tokenHandler = new JwtSecurityTokenHandler();
-
-        var key = Encoding.ASCII.GetBytes(configuration["Jwt:Secret"]);
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-                new Claim(ClaimTypes.Name, username)
-            }),
-            Expires = DateTime.UtcNow.AddMinutes(3),
-            SigningCredentials =
-                new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-        };
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
-    }
+    
+    // private async Task<string> GenerateTokenAsync(string username)
+    // {
+    //     var tokenHandler = new JwtSecurityTokenHandler();
+    //
+    //     var key = Encoding.ASCII.GetBytes(configuration["Jwt:Secret"]);
+    //     var tokenDescriptor = new SecurityTokenDescriptor
+    //     {
+    //         Subject = new ClaimsIdentity(new Claim[]
+    //         {
+    //             new Claim(ClaimTypes.Name, username)
+    //         }),
+    //         Expires = DateTime.UtcNow.AddMinutes(3),
+    //         SigningCredentials =
+    //             new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+    //     };
+    //     var token = tokenHandler.CreateToken(tokenDescriptor);
+    //     return tokenHandler.WriteToken(token);
+    // }
 }
