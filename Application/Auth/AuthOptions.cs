@@ -5,7 +5,7 @@ namespace sultan.Application.Auth;
 
 
 /// <summary>
-/// Параметры Аутентификации
+/// Параметры Аутентификации.
 /// </summary>
 public class AuthOptions {
     public const string ISSUER = "MyAuthServer"; 

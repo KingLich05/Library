@@ -8,18 +8,18 @@ public class BookService : IBookService
     private static readonly Context Db = new Context();
 
     /// <summary>
-    /// Возвращает список всех книг из бд
+    /// Возвращает список всех книг из бд.
     /// </summary>
-    /// <returns>список книг</returns>
+    /// <returns>Список книг.</returns>
     public override async Task<List<Books>> GetBookAsync()
     {   
         return await Db.Books.ToListAsync();
     }
     
     /// <summary>
-    /// Добавляет начальные книги в бд
+    /// Добавляет начальные книги в бд.
     /// </summary>
-    /// <returns> список книг</returns>
+    /// <returns>Список книг.</returns>
     public override async Task<List<Books>> FillLibrary()
     {
         List<Books> books = new List<Books>

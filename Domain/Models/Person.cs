@@ -6,7 +6,7 @@ namespace sultan.Domain.Models;
 public class Person : Entity
 {
     /// <summary>
-    /// Имя определенного пользователя
+    /// Имя определенного пользователя.
     /// </summary>
     public string Name { get; set; } = null!;
     

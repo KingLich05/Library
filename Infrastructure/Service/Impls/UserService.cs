@@ -11,9 +11,9 @@ public class UserService : IUsersService
     private static readonly Context Db = new Context();
     private readonly IPasswordHashingService _hashPass = new PasswordHashingService();
     /// <summary>
-    /// Предоставляет список пользователей
+    /// Предоставляет список пользователей.
     /// </summary>
-    /// <returns>Список пользователей</returns>
+    /// <returns>Список пользователей.</returns>
     public async Task<List<Users>> GetUsersListAsync()
     {
         return await Db.Users.ToListAsync();
@@ -23,7 +23,7 @@ public class UserService : IUsersService
     ///  Сохраняет пользователя в базе.
     /// </summary>
     /// <param name="user">Пользователь для сохранения.</param>
-    /// <returns>Обновленный список пользователей</returns>
+    /// <returns>Обновленный список пользователей.</returns>
     public async Task<List<Users>> SavePersonDbAsync(Users user)
     {
         Users person = new Users { Name = user.Name, Email = user.Email, Password = await _hashPass.HashPassword(user.Password) };
@@ -34,11 +34,11 @@ public class UserService : IUsersService
 
     
     /// <summary>
-    /// Проверяет, существует ли данный пользователь
+    /// Проверяет, существует ли данный пользователь.
     /// </summary>
     /// <param name="username">Электронная почта пользователя.</param>
     /// <param name="password">Пароль пользователя.</param> 
-    /// <returns>Объект пользователя, если он действителен, иначе null</returns>
+    /// <returns>Объект пользователя, если он действителен, иначе null.</returns>
     public async Task<Person> IsValidUserAsync(string username, string password)
     {
         var people = await GetUsersListAsync();
@@ -52,10 +52,10 @@ public class UserService : IUsersService
     }
     
     /// <summary>
-    /// Преобразование из Users в Person
+    /// Преобразование из Users в Person.
     /// </summary>
-    /// <param name="user">Преобразование пользователя</param>
-    /// <returns>Возвращает преобразованного пользователя</returns>
+    /// <param name="user">Преобразование пользователя.</param>
+    /// <returns>Возвращает преобразованного пользователя.</returns>
     static Person ConvertToPerson(Users user)
     {
         Person person = new Person

@@ -6,7 +6,7 @@ namespace sultan.Domain.Models;
 public abstract class Entity
 {
     /// <summary>
-    /// Уникальный Идентификатор
+    /// Уникальный Идентификатор.
     /// </summary>
     public int Id { get; set; }
 }

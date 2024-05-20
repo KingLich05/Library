@@ -3,10 +3,10 @@ namespace sultan.Service.Impls;
 public class PasswordHashingService : IPasswordHashingService
 {
     /// <summary>
-    /// хешируется пароль
+    /// Хешируется пароль.
     /// </summary>
-    /// <param name="password">Пароль который нужно превратить в хеш</param>
-    /// <returns>возвращается хешированный пароль</returns>
+    /// <param name="password">Пароль который нужно превратить в хеш.</param>
+    /// <returns>Возвращается хешированный пароль.</returns>
     public async Task<string> HashPassword(string password)
     {
         return BCrypt.Net.BCrypt.HashPassword(password);
@@ -14,11 +14,11 @@ public class PasswordHashingService : IPasswordHashingService
 
     
     /// <summary>
-    /// Проверяет, совпадает ли введенный пароль от хеш-пароля
+    /// Проверяет, совпадает ли введенный пароль от хеш-пароля.
     /// </summary>
-    /// <param name="password">введенный пароль пользователя</param>
-    /// <param name="hash">хешированный пароль пользователя</param>
-    /// <returns>Возвращает bool</returns>
+    /// <param name="password">Введенный пароль пользователя.</param>
+    /// <param name="hash">Хешированный пароль пользователя.</param>
+    /// <returns>Возвращает bool.</returns>
     public bool CheckPassword(string password,string hash)
     {
         return BCrypt.Net.BCrypt.Verify(password, hash);

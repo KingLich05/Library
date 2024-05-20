@@ -12,12 +12,12 @@ public class Users : Entity
     public string Name { get; set; } = null!;
     
     /// <summary>
-    /// электронная почта пользователя.
+    /// Электронная почта пользователя.
     /// </summary>
     public string Email { get; set; } = null!;
     
     /// <summary>
-    /// хешированный пароль пользователя.
+    /// Хешированный пароль пользователя.
     /// </summary>
     public string Password { get; set; } = null!;
 }

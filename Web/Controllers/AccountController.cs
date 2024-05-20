@@ -23,10 +23,10 @@ public class AccountController(
     IJwtTokenGenerator jwtTokenGenerator) : Controller
 {
     /// <summary>
-    /// Авторизация пользователя
+    /// Авторизация пользователя.
     /// </summary>
-    /// <param name="model">это данные которые пришли с представления с формы авторизации</param>
-    /// <returns>Если пользователь найден и авторизация прошла успешно, возвращает на начальную страницу, иначе "Unauthorized"</returns>
+    /// <param name="model">Это данные которые пришли с представления с формы авторизации.</param>
+    /// <returns>Если пользователь найден и авторизация прошла успешно, возвращает на начальную страницу, иначе "Unauthorized".</returns>
     [HttpPost]
     [Route("/token")]
     public async Task<IActionResult> Login(Person model)
@@ -34,10 +34,6 @@ public class AccountController(
         Person person = await usersService.IsValidUserAsync(model.Email, model.Password);
         if (person != null)
         {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, person.Email)
-            };
             var token = await jwtTokenGenerator.GenerateTokenAsync(person.Email);
             var httpClient = httpClientFactory.CreateClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);

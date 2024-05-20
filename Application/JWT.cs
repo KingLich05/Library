@@ -6,15 +6,15 @@ namespace sultan.Application;
 
 
 /// <summary>
-/// Класс для работы с JWT
+/// Класс для работы с JWT.
 /// </summary>
 public abstract class Jwt()
 {
     
     /// <summary>
-    /// Настройки JWT
+    /// Настройки JWT.
     /// </summary>
-    /// <param name="options">Настройки аутентификации</param>
+    /// <param name="options">Настройки аутентификации.</param>
     public static void jwt(JwtBearerOptions options)
     {
         options.TokenValidationParameters = new TokenValidationParameters

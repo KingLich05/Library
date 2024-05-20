@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace sultan.Domain.Models;
 /// <summary>
-/// модель временного хранения книг к определенному пользователю.    
+/// Модель временного хранения книг к определенному пользователю.    
 /// </summary>
 public class Temp : Entity
 {

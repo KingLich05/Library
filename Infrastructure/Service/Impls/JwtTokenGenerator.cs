@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace sultan.Service.Impls;
 
 /// <summary>
-/// Генерация токена JWT
+/// Генерация токена JWT.
 /// </summary>
 public class JwtTokenGenerator : IJwtTokenGenerator
 {
@@ -18,10 +18,10 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     }
 
     /// <summary>
-    /// Генерирует и настраивает токен
+    /// Генерирует и настраивает токен.
     /// </summary>
-    /// <param name="username">Электронная почта пользователя</param>
-    /// <returns>Возращает сгенерированный токен</returns>
+    /// <param name="username">Электронная почта пользователя.</param>
+    /// <returns>Возращает сгенерированный токен.</returns>
     public async Task<string> GenerateTokenAsync(string username)
     {
         var tokenHandler = new JwtSecurityTokenHandler();

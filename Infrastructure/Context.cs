@@ -10,34 +10,34 @@ namespace sultan;
 public class Context : DbContext
 {
     /// <summary>
-    /// Таблица пользователей
+    /// Таблица пользователей.
     /// </summary>
     public DbSet<Users> Users => Set<Users>();
     
     /// <summary>
-    /// Таблица книг
+    /// Таблица книг.
     /// </summary>
     public DbSet<Books> Books => Set<Books>();
     
     /// <summary>
-    /// Таблица связи книг и пользователей
+    /// Таблица связи книг и пользователей.
     /// </summary>
     public DbSet<BookAndUser> BookAndUsers => Set<BookAndUser>();
     
     /// <summary>
-    /// Таблица временных записей книг и одного пользователя
+    /// Таблица временных записей книг и одного пользователя.
     /// </summary>
     public DbSet<Temp> Temps => Set<Temp>();
     
     /// <summary>
-    /// Создание базы данных 
+    /// Создание базы данных.
     /// </summary>
     public Context() => Database.EnsureCreated();
  
     /// <summary>
     /// Настройка опций контекста базы данных.
     /// </summary>
-    /// <param name="optionsBuilder">Построитель опций контекста базы данных</param>
+    /// <param name="optionsBuilder">Построитель опций контекста базы данных.</param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=library.db");

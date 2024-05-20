@@ -14,9 +14,9 @@ public class BookAndUserService : IBookAndUserService
     
 
     /// <summary>
-    /// конструктор класса 
+    /// Конструктор класса.
     /// </summary>
-    /// <param name="bookService">Сервис для работы с книгами</param>
+    /// <param name="bookService">Сервис для работы с книгами.</param>
     public BookAndUserService(IBookService bookService)
     {
         _bookService = bookService;
@@ -25,9 +25,9 @@ public class BookAndUserService : IBookAndUserService
 
     
     /// <summary>
-    /// Возвращает список связей книг и пользователей
+    /// Возвращает список связей книг и пользователей.
     /// </summary>
-    /// <returns>Список связей книг и пользователей</returns>
+    /// <returns>Список связей книг и пользователей.</returns>
     public async Task<List<BookAndUser>> GetBau()
     {
         return await Db.BookAndUsers.ToListAsync();
@@ -35,11 +35,11 @@ public class BookAndUserService : IBookAndUserService
 
     
     /// <summary>
-    /// Добавление книгу и пользователя к таблице BookAndUser 
+    /// Добавление книгу и пользователя к таблице BookAndUser.
     /// </summary>
-    /// <param name="bookId">Идентификатор книги</param>
-    /// <param name="userId">Идентификатор пользователя</param>
-    /// <returns>Возвращает успех функции. bool</returns>
+    /// <param name="bookId">Идентификатор книги.</param>
+    /// <param name="userId">Идентификатор пользователя.</param>
+    /// <returns>Возвращает успех функции. bool.</returns>
     public async Task<bool> AddBook(int bookId, int userId)
     {
         if (!await Presence(bookId)) return false;
@@ -58,10 +58,10 @@ public class BookAndUserService : IBookAndUserService
 
     
     /// <summary>
-    /// Проверяет, осталась ли в наличие книга
+    /// Проверяет, осталась ли в наличие книга.
     /// </summary>
-    /// <param name="bookId">Идентификатор книги</param>
-    /// <returns>True если осталась, иначе false</returns>
+    /// <param name="bookId">Идентификатор книги.</param>
+    /// <returns>True если осталась, иначе false.</returns>
     private async Task<bool> Presence(int bookId)
     {
         var books = await _bookService.GetBookAsync();
@@ -74,10 +74,10 @@ public class BookAndUserService : IBookAndUserService
 
     
     /// <summary>
-    /// Возвращает книгу в библиотеку обратно
+    /// Возвращает книгу в библиотеку обратно.
     /// </summary>
-    /// <param name="bookId">Идентификатор книги</param>
-    /// <param name="userId">Идентификатор пользователя</param>
+    /// <param name="bookId">Идентификатор книги.</param>
+    /// <param name="userId">Идентификатор пользователя.</param>
     public async Task ReturnBook(int bookId, int userId)
     {
         var bau = await GetBau();
@@ -96,10 +96,10 @@ public class BookAndUserService : IBookAndUserService
     
     
     /// <summary>
-    /// Получает список всех книг взятых одним пользователем
+    /// Получает список всех книг взятых одним пользователем.
     /// </summary>
-    /// <param name="userId">Идентификатор пользователя</param>
-    /// <returns>Список книг пользователя</returns>
+    /// <param name="userId">Идентификатор пользователя.</param>
+    /// <returns>Список книг пользователя.</returns>
     public async Task<List<Domain.Models.Temp>> GetBauOnlyPerson(int userId)
     {
         Db.Temps.RemoveRange(Db.Temps);
@@ -112,8 +112,8 @@ public class BookAndUserService : IBookAndUserService
     /// <summary>
     /// Обрабатывает список книг, выбранных определенным пользователем.
     /// </summary>
-    /// <param name="userId">Идентификатор пользователя</param>
-    /// <returns>Список временных записей для выбранного пользователя</returns>
+    /// <param name="userId">Идентификатор пользователя.</param>
+    /// <returns>Список временных записей для выбранного пользователя.</returns>
     public async Task<List<Domain.Models.Temp>> ProcessSelectedPerson(int userId)
     {
         var bau = await GetBau();

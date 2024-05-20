@@ -33,9 +33,9 @@ public class HomeController(IBookService bookService, IBookAndUserService bookAn
 
     
     /// <summary>
-    /// Вызов представления, когда нет в наличии книг
+    /// возвращает строку, когда нет в наличии книг
     /// </summary>
-    /// <returns>вызов представления</returns>
+    /// <returns>строка о том что книга занята</returns>
     public async Task<string> Error()
     {
         return "Эта книга уже занята";

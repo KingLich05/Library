@@ -5,7 +5,7 @@ using System.Net.Mail;
 namespace sultan.Service.Impls;
 
 /// <summary>
-/// Сервис для работы с отправкой писем на почту
+/// Сервис для работы с отправкой писем на почту.
 /// </summary>
 public class MailService : IMailService
 {
