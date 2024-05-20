@@ -32,8 +32,5 @@ public interface IBookAndUserService
     /// <param name="userId">Идентификатор пользователя</param>
     Task ReturnBook(int bookId, int userId);
     
-    /// <summary>
-    /// Отправка письма на почту пользователя
-    /// </summary>
-    Task MailService();
+    
 }

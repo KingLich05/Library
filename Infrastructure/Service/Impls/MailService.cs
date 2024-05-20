@@ -1,12 +1,13 @@
+using sultan.Web;
 using System.Net;
 using System.Net.Mail;
 
-namespace sultan.Web;
+namespace sultan.Service.Impls;
 
 /// <summary>
-/// Класс для отправки электронной почты.
+/// Сервис для работы с отправкой писем на почту
 /// </summary>
-public class Mail
+public class MailService : IMailService
 {
     /// <summary>
     /// Текст сообщения электронной почты.
@@ -16,7 +17,7 @@ public class Mail
     /// <summary>
     /// Отправляет сообщение на электронную почту.
     /// </summary>
-    public static async Task SendMail()
+    public async Task SendMail()
     {
         var client = new SmtpClient("live.smtp.mailtrap.io", 587)
         {
@@ -25,4 +26,5 @@ public class Mail
         };
         client.Send("mailtrap@demomailtrap.com", "skurmanov12@gmail.com", "Библиотека", Body);
     }
+    
 }

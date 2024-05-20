@@ -145,13 +145,4 @@ public class BookAndUserService : IBookAndUserService
 
         return await Db.Temps.ToListAsync();
     }
-
-    
-    /// <summary>
-    /// Отправка письма на почту пользователя
-    /// </summary>
-    public async Task MailService()
-    {
-        await Mail.SendMail();
-    }
 }

@@ -11,7 +11,7 @@ namespace sultan.Web.Controllers;
 /// <param name="bookService">Сервис для работы с книгами</param>
 /// <param name="bookAndUserService">Сервис для работы со связями книг и пользователей</param>
 /// <param name="logger">логгер</param>
-public class HomeController(IBookService bookService, IBookAndUserService bookAndUserService, ILogger<HomeController> logger) : Controller
+public class HomeController(IBookService bookService, IBookAndUserService bookAndUserService, IMailService mailService) : Controller
 {
     
     /// <summary>
@@ -36,9 +36,9 @@ public class HomeController(IBookService bookService, IBookAndUserService bookAn
     /// Вызов представления, когда нет в наличии книг
     /// </summary>
     /// <returns>вызов представления</returns>
-    public async Task<IActionResult> Error()
+    public async Task<string> Error()
     {
-        return View();
+        return "Эта книга уже занята";
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ public class HomeController(IBookService bookService, IBookAndUserService bookAn
     {
         if (await bookAndUserService.AddBook(bookId, userId))
         {
-            await bookAndUserService.MailService();
+            await mailService.SendMail();
             return RedirectToAction("Index", "Home", new {id = userId});
         }
         return RedirectToAction("Error", "Home");

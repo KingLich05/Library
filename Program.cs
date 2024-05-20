@@ -22,6 +22,7 @@ builder.Services.AddScoped<IUsersService, UserService>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IBookAndUserService, BookAndUserService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+builder.Services.AddScoped<IMailService, MailService>();
 
 builder.Services.AddHttpClient();
 
