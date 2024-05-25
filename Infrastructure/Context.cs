@@ -33,13 +33,13 @@ public class Context : DbContext
     /// Создание базы данных.
     /// </summary>
     public Context() => Database.EnsureCreated();
- 
+    
     /// <summary>
-    /// Настройка опций контекста базы данных.
+    /// Настройка БД.
     /// </summary>
-    /// <param name="optionsBuilder">Построитель опций контекста базы данных.</param>
+    /// <param name="optionsBuilder">Сервис, который помогает настроить БД.</param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=library.db");
+        optionsBuilder.UseNpgsql("host=localhost;port=5432;Database=library;User Id = postgres;Password=sultan;");
     }
 }

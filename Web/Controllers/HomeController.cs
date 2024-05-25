@@ -24,7 +24,7 @@ public class HomeController(IBookService bookService, IBookAndUserService bookAn
     {
         var viewModel = new BooksBAUViewModel()
         {
-            Books = await bookService.GetBookAsync(),
+            Books = await bookService.GetBookAsync(), 
             Temps = await bookAndUserService.GetBauOnlyPerson(id),
             idUser = id
         };

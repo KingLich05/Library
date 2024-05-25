@@ -649,3 +649,5 @@ C:\sultan\obj\Debug\net8.0\sultan.MvcApplicationPartsAssemblyInfo.cs
 C:\sultan\obj\Debug\net8.0\sultan.RazorAssemblyInfo.cache
 C:\sultan\obj\Debug\net8.0\sultan.RazorAssemblyInfo.cs
 C:\sultan\obj\Debug\net8.0\sultan.sourcelink.json
+C:\sultan\bin\Debug\net8.0\Npgsql.dll
+C:\sultan\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
