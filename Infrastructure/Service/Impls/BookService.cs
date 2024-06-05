@@ -13,7 +13,10 @@ public class BookService : IBookService
     /// <returns>Список книг.</returns>
     public override async Task<List<Books>> GetBookAsync()
     {   
-        return await Db.Books.ToListAsync();
+        var orderedBooks = from i in await Db.Books.ToListAsync()
+            orderby i.Id
+            select i;
+        return new List<Books>(orderedBooks);
     }
     
     /// <summary>

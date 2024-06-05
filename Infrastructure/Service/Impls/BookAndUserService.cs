@@ -47,9 +47,8 @@ public class BookAndUserService : IBookAndUserService
         var books = await _bookService.GetBookAsync();
         Books? book = await Db.Books.FindAsync(bookId);
         
-        book!.Presence -= 1;
         books[bookId - 1].Presence -= 1;
-        BookAndUser addTemp = new BookAndUser { idUser = userId, idBook = bookId, Term = DateTime.Now };
+        BookAndUser addTemp = new BookAndUser { idUser = userId, idBook = bookId, Term = DateTime.UtcNow };
         
         Db.BookAndUsers.Add(addTemp);
         await Db.SaveChangesAsync();
@@ -84,7 +83,6 @@ public class BookAndUserService : IBookAndUserService
         var books = await _bookService.GetBookAsync();
         
         Books? book = Db.Books.FirstOrDefault(b => b.Id == bookId);
-        book!.Presence += 1;
         
         books[bookId - 1].Presence += 1; 
         
